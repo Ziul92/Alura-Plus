@@ -1,0 +1,196 @@
+$branco-principal: #FFFFFF;
+$cinza-secundario: #C0C0C0;
+$azul-botao: #167BF7;
+$preto-fundo: #00030C;
+$altura-caixas: 100vh;
+$font-familia: "Inter";
+
+@mixin flex($espaço) {
+  display: flex;
+  justify-content: $espaço;
+  align-items: center;
+}
+
+@mixin texto($size, $weight, $height) {
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $height;
+}
+
+
+
+
+
+body {
+    background-color: $preto-fundo;
+    color: $branco-principal;
+    font-family: $font-familia;
+}
+
+header {
+  background-image: url("/Projeto/img/Background.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-align: center;
+}
+
+
+
+.cabecalho {
+  height: $altura-caixas;
+  display: grid;
+  grid-template-columns: 50% 50%;
+
+  &__caixa {
+    @include flex(center);
+    flex-direction: column;
+  }
+
+    &__titulo {
+      @include texto(28px,700,34px);
+      width: 588px;
+      height: 102px;
+      left: 54px;
+      top: 125px;
+      text-align: center;
+    }
+
+    &__imagem {
+      margin: 15px 0;
+    }
+
+    &__botaoAzul {
+      @include texto(16px,400,1);
+      background-color: $azul-botao;
+      border-radius: 5px;
+      padding: 16px 0;
+      width: 80%;
+      margin: 10px 0;
+      
+      &:hover {
+        color: $preto-fundo;
+        cursor:pointer;
+      }
+    }
+
+    &__botaoCinza {
+      @include texto(16px,400,1);
+      background-color: transparent;
+      border: 2px solid $cinza-secundario;
+      padding: 16px 0;
+      width: 80%;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      
+      &:hover {
+        color: $cinza-secundario;
+        cursor:pointer;
+      }
+    }
+
+    &__texto {
+      @include texto(12px,400,15px);
+      color: $cinza-secundario;
+    }
+}
+
+
+.secundario {
+  @include flex(space-around);
+  margin: 0 5em 12em 5em;
+
+
+  &__imagem {
+    padding: 0 2em;
+  }
+
+  &__caixa {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+
+
+    &--titulo {
+      @include texto(48px,700,1);
+      padding-bottom: 10px;
+    }
+
+    &--texto {
+      @include texto(16px,400,1.5);
+      color: #F9F9F9;
+      opacity: 0.8;
+      margin-bottom: 1em
+    }
+
+    &--botao {
+      @include texto(16px,400,1);
+      background-color: $azul-botao;
+      border-radius: 5px;
+      padding: 16px 0;
+      width: 25%;
+      text-align: center;
+
+      &:hover {
+        color: $preto-fundo;
+        cursor:pointer;
+      }
+    }
+  }
+}
+
+
+.dispositivos {
+  text-align: center;
+
+  &__titulo {
+    @include texto(48px,700, 58px)
+  }
+
+  &__lista {
+    @include flex(center);
+    margin: 2em 0;
+
+    &--titulo {
+      @include texto(32px,700,39px)
+    }
+  }
+}
+
+
+.rodape {
+  text-align: center;
+
+  &__logo {
+    margin: 7em 0 2em 0;
+  }
+
+  &__lista {
+    @include flex(center);
+
+    &--item {
+      @include texto(16px,400,24px);
+      color: $branco-principal;
+      text-decoration: none;
+      padding: 0 0.5em;
+
+      &:hover {
+        color: $azul-botao;
+      }
+
+      &:active {
+        color: $cinza-secundario;
+      }
+    }
+  }
+
+  &__texto {
+    @include texto(14px,400,21px);
+    color: $cinza-secundario;
+    margin: 2em ;
+
+    &:last-child {
+      margin-bottom: 5em;
+    }
+  }
+}
