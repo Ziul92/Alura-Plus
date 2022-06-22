@@ -4,7 +4,7 @@ body {
     font-family: "Inter";
 }
 header {
-    background-image: url("img/Background.png");
+    background-image: url("/Projeto/img/Background.png");
     background-repeat: no-repeat;
     background-size: contain;
     text-align: center;
